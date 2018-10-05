@@ -20,10 +20,17 @@ func (n *Jmap) AddMap(node Jmap, path ...string) {
 	for _, k := range path {
 		currVal := *currNode
 		untyped, ok := currVal[k]
+		var nextNode Jmap
 		if !ok || untyped == nil {
-			currVal[k] = Jmap{}
+			nextNode = Jmap{}
 		}
-		nextNode := currVal[k].(Jmap)
+		switch v := currVal[k].(type) {
+		case Jmap:
+			nextNode = v
+		default:
+			nextNode = Jmap{}
+		}
+		currVal[k] = nextNode
 		currNode = &nextNode
 	}
 
