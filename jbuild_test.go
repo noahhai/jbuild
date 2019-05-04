@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/noahhai/jbuild"
+	"jbuild"
 	"github.com/stretchr/testify/assert"
 )
 
