@@ -8,7 +8,7 @@ type MergeOptions struct {
 	ErrorOnKeyConflict bool
 }
 
-func (n *Jmap) Add(val interface{}, path ...string) {
+func (n Jmap) Add(val interface{}, path ...string) {
 	if len(path) < 1 {
 		return
 	}

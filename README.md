@@ -6,6 +6,15 @@ go get github.com/noahhai/jbuild
 
 ## Usage
 
+We can build a map with the two main methods, Add (which accepts value interface{}) and AddMap (value is a JMap).
+
+For each, the first argument is the value (end node) and the variadic args are the sequence of keys (path)  
+```go
+func (n Jmap) AddMap(node Jmap, path ...string) {}
+func (n Jmap) Add(val interface{}, path ...string) {}
+```
+
+For example
 ```go
 j := jbuild.Jmap{}
 j.Add("B", "A")
